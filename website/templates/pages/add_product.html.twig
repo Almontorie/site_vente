@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+    <style>
+        .card {
+            width: 400px;
+        }
+    </style>
+
+    <div class="shadow container card mt-4">
+        <div class="card-header" style="background: rgb(1,1,1,0)">
+            <h3 class="card-title">Ajout d'un produit</h3>
+        </div>
+        <div class="container mt-4">
+            {{ form_start(form) }}
+                {{ form_rest(form) }}
+            <button class="btn btn-success float-right mt-3 mb-3">Ajouter</button>
+            {{ form_end(form) }}
+        </div>
+    </div>
+{% endblock %}
