@@ -18,7 +18,6 @@ class HomeController extends AbstractController
      * @return mixed
      * @Route("/", name="home")
      */
-
     public function index() : Response
     {
         return $this->render('pages/home.html.twig');
