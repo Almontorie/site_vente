@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails de l'article{% endblock %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+        <h3>Un petit marché pas trop dispendu lo !</h3>
+    </div>
+
+    <div class="d-flex justify-content-center align-items-center login-parent" id="item">
+        <div class="card card-container shadow">
+
+            <h2 class="card-header">ZI ARTICLE TRO BI1</h2>
+
+            <br>
+            <br>
+
+            <div class="d-flex">
+
+                <div id="left_column">
+                    <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Send nudes" style="vertical-align: middle">
+                </div>
+
+                <div class="align-content-end" id="center_column">
+                    <div class="d-inline-flex">
+                        <h2 style="font-weight: bold">Nom de l'item</h2>
+                        <span class="ml-3">Par Vendeur</span>
+                    </div>
+
+                    <hr>
+
+                    <br>
+                    <br>
+
+                    <div class="d-inline-flex">
+                        <h3 class="inline" style="font-weight: bold">Prix :</h3>
+                        <span class="ml-3" style="font-size: 2em;">42€</span>
+                    </div>
+
+                    <br>
+                    <br>
+
+                    <h4>Description du produit</h4>
+                    <p class="ml-3">Acheté se produi paskil é tro bi1</p>
+                </div>
+
+                <div id="right_column">
+                    <button>Ajouter au panier</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
