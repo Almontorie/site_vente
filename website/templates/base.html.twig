@@ -5,6 +5,45 @@
         <title>{% block title %}Welcome!{% endblock %}</title>
         {% block stylesheets %}{% endblock %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <style>
+            {% block style %}
+
+            .card-container {
+                margin-top: 1%;
+                padding: 25px;
+                width: 100rem;
+            }
+
+            .card-container > h2 {
+                text-align: center;
+            }
+            .card-container button {
+                display: block;
+                margin: 0 auto;
+            }
+
+            #item #left_column {
+                text-align: center;
+                width: 30%;
+            }
+
+            #item #center_column {
+                padding-left: 2em;
+                width: 50%;
+            }
+
+            #item #right_column {
+                text-align: center;
+                width: 20%;
+            }
+
+            #item #center_column h4 {
+                font-weight: bold;
+            }
+
+            {% endblock %}
+        </style>
+
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -12,6 +51,7 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+            <a href="item">Item</a>
         </nav>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
