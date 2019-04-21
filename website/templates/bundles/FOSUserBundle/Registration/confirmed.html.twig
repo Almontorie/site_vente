@@ -1,10 +1,11 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends 'base.html.twig' %}}
 
-{% trans_default_domain 'FOSUserBundle' %}
-
-{% block fos_user_content %}
-    <p>{{ 'registration.confirmed'|trans({'%username%': user.username}) }}</p>
+{% block body %}
+    <div class=" ml-auto mr-auto alert alert-success" style="width: 400px">
+        <div>Votre oompte a été créer avec succées </div>
+        <div>{{"Bravo" ~ {'%username%': user.username} ~",  votre compte est maitenant enregistré" }}</div>
+    </div>
     {% if targetUrl %}
     <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
     {% endif %}
-{% endblock fos_user_content %}
+{% endblock body %}

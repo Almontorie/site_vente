@@ -1,5 +1,5 @@
 {% extends 'base.html.twig' %}
-
+{% trans_default_domain 'FOSUserBundle' %}
 {% block body %}
 <body>
 <div>
@@ -22,7 +22,7 @@
         {% endfor %}
     {% endfor %}
 {% endif %}
-    <div class="container card shadow" style="width: 400px">
+    <div class="container card shadow mt-4" style="width: 400px">
         <div class="card-header" style="background-color: #fff;">
             <h3 class="card-title">Inscription</h3>
         </div>

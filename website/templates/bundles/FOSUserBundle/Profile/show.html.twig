@@ -1,5 +1,47 @@
-{% extends "@FOSUser/layout.html.twig" %}
+{% extends 'base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block body %}
+<body>
+<div>
+    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+        {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+        <a href="{{ path('fos_user_security_logout') }}">
+            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+        </a>
+    {% else %}
+        <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+    {% endif %}
+</div>
 
-{% block fos_user_content %}
-{% include "@FOSUser/Profile/show_content.html.twig" %}
-{% endblock fos_user_content %}
+{% if app.request.hasPreviousSession %}
+    {% for type, messages in app.session.flashbag.all() %}
+        {% for message in messages %}
+            <div class=" ml-auto mr-auto alert alert-success" style="width: 400px">
+                {{ message }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+{% endif %}
+<div class="container card shadow mt-4" style="width: 400px">
+    <div class="card-header" style="background-color: #fff;">
+        <h3 class="card-title">Votre profil</h3>
+    </div>
+    <div class="fos_user_user_show mt-4 mb-4">
+        <div class="row mb-2">
+            <div class="col-3" style="font-weight: bolder"> Pseudo </div>
+            <div class="col-9">{{ user.username }}</div>
+        </div>
+        <div class="row mb-2">
+            <div class="col-3" style="font-weight: bolder"> Email </div>
+            <div class="col-9">{{ user.email }}</div>
+        </div>
+        <div> <a href="{{ path('fos_user_change_password')}}"  class="btn btn-primary float-right mt-4 ml-1">Editer mot de passe</a>
+        </div>
+        <div>
+        <a href="{{ path('fos_user_profile_edit')}}"  class="btn btn-success  float-right mt-4">Editer profil</a>
+        </div>
+    </div>
+</div>
+
+</body>
+{% endblock body%}
