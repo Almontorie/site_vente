@@ -8,18 +8,47 @@
 
 namespace App\Controller;
 
+use App\Repository\ProductRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class HomeController extends AbstractController
 {
     /**
+     * @param ProductRepository $productRepository
      * @return mixed
      * @Route("/", name="home")
      */
-    public function index() : Response
+    public function index(ProductRepository $productRepository) : Response
     {
-        return $this->render('pages/home.html.twig');
+        $products = $productRepository->findAll();
+        return $this->render('pages/home.html.twig', [
+            "products" => $products
+        ]);
+    }
+
+    /**
+     * @Route("/search", name="home.search")
+     * @param Request $request
+     * @param ProductRepository $productRepository
+     * @return Response
+     */
+    public function search(Request $request, ProductRepository $productRepository)
+    {
+        $name = $request->get('keyword');
+        if(empty($name)){
+            return $this->redirectToRoute("home");
+        }
+        $products = $productRepository->findByName($name);
+
+        if(empty($products)){
+            $this->addFlash("Error","Aucun résultats");
+        }
+
+        return $this->render('pages/home.html.twig', [
+            "products" => $products
+        ]);
     }
 }
