@@ -24,7 +24,7 @@ class UserController extends AbstractController
         else{
             $cart=[];
         }
-        $cart[]->$id;
+        $cart[]=$id;
         $session->set("cart",$cart);
         return $this->redirectToRoute('home');
     }
