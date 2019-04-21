@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-sm-2">
                             <h3 class="text-primary text-center">{{ product.price }} $</h3>
-                            <input class="btn btn-primary float-right" type="submit" value="Ajouter au panier" />
+                            <a class="btn btn-primary btn-block mt-3" href="{{ path('user.cart.add', {'id': product.id}) }}">Ajout au panier</a>
                         </div>
                     </div>
                 </div>
