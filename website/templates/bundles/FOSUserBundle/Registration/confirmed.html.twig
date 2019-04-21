@@ -1,9 +1,9 @@
-{% extends 'base.html.twig' %}}
+{% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class=" ml-auto mr-auto alert alert-success" style="width: 400px">
-        <div>Votre oompte a été créer avec succées </div>
-        <div>{{"Bravo" ~ {'%username%': user.username} ~",  votre compte est maitenant enregistré" }}</div>
+    <div class=" ml-auto mr-auto alert alert-success mt-4" style="width: 400px">
+        <div>Votre compte a été créé avec succès </div>
+        <div>Bravo {{app.user.username}} votre compte est maitenant enregistré</div>
     </div>
     {% if targetUrl %}
     <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
