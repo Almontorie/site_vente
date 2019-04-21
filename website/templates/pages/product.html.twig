@@ -7,48 +7,32 @@
         <h3>Un petit marché pas trop dispendu lo !</h3>
     </div>
 
-    <div class="d-flex justify-content-center align-items-center login-parent" id="item">
-        <div class="card card-container shadow">
-
-            <h2 class="card-header">ZI ARTICLE TRO BI1</h2>
-
-            <br>
-            <br>
-
-            <div class="d-flex">
-
-                <div id="left_column">
-                    <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Send nudes" style="vertical-align: middle">
-                </div>
-
-                <div class="align-content-end" id="center_column">
-                    <div class="d-inline-flex">
-                        <h2 style="font-weight: bold">{{ product.title }}</h2>
-                        <span class="ml-3">Par ZI VENDEUR</span>
+    <div class="container">
+        <div class="card shadow">
+            <div class="card-header">
+                <h3 class="card-title">Fiche produit</h3>
+            </div>
+            <div class="card-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img class="img-fluid" src="https://vignette.wikia.nocookie.net/playminecraft/images/5/54/Diamond_Pickaxe.png/revision/latest?cb=20140921132313" alt="demonstration">
+                        </div>
+                        <div class="col-sm-6">
+                            <h3 class="font-weight-bold">{{ product.title }}</h3>
+                            <p>Par : <b class="text-primary">vendeur</b></p>
+                            <p class="text-primary"></p>
+                            <p class="font-weight-bold mt-5">Description : </p>
+                            <p>{{ product.description }}</p>
+                        </div>
+                        <div class="col-sm-2">
+                            <h3 class="text-primary text-center">{{ product.price }} $</h3>
+                            <input class="btn btn-primary float-right" type="submit" value="Ajouter au panier" />
+                        </div>
                     </div>
-
-                    <hr>
-
-                    <br>
-                    <br>
-
-                    <div class="d-inline-flex">
-                        <h3 class="inline" style="font-weight: bold">Prix :</h3>
-                        <span class="ml-3" style="font-size: 2em;">{{ product.price }} €</span>
-                    </div>
-
-                    <br>
-                    <br>
-
-                    <h4>Description du produit</h4>
-                    <p class="ml-3">{{ product.description }}</p>
-                </div>
-
-                <div id="right_column">
-                    <button>Ajouter au panier</button>
                 </div>
             </div>
-
         </div>
     </div>
+
 {% endblock %}
