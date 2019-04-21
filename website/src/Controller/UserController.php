@@ -13,19 +13,19 @@ class UserController extends AbstractController
 
 
     /**
-     * @Route ("/product/panier/{id}",name="user.panier.add")
+     * @Route ("/product/cart/{id}",name="user.cart.add")
      * @param $id
      */
-    public function addPanier($id){
+    public function addCart($id){
         $session=new Session();
-        if ($session->has("myVar")) {
-            $panier=$session->get('panier');
+        if ($session->has("cart")) {
+            $cart=$session->get('cart');
         }
         else{
-            $panier=[];
+            $cart=[];
         }
-        $panier[]->$id;
-        $session->set("panier",$panier);
+        $cart[]->$id;
+        $session->set("cart",$cart);
         return $this->redirectToRoute('home');
     }
 
