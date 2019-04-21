@@ -8,7 +8,7 @@
         <style>
             {% block style %}
 
-            .card-container {
+/*            .card-container {
                 margin-top: 1%;
                 padding: 25px;
                 width: 100rem;
@@ -39,7 +39,7 @@
 
             #item #center_column h4 {
                 font-weight: bold;
-            }
+            }*/
 
             {% endblock %}
         </style>
@@ -48,10 +48,22 @@
     <body>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <a class="navbar-brand" href="{{ path('home') }}">Amazing Fnac CDiscount </a>
+
+            <a href="{{ path('products.add') }}" class="nav-item nav-link">Ajouter un produit</a>
+
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <a class="btn btn-danger ml-auto" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+            {% else %}
+                <div class="ml-auto">
+                    <a class="btn btn-success" href="{{ path('fos_user_security_login') }}">Se connecter</a>
+                    <a class="btn btn-warning ml-2" href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
+                </div>
+            {% endif %}
+
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a href="item">Item</a>
+
         </nav>
         {% block body %}{% endblock %}
         {% block javascripts %}{% endblock %}
