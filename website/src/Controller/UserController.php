@@ -13,8 +13,9 @@ class UserController extends AbstractController
 
 
     /**
-     * @Route ("/product/cart/{id}",name="user.cart.add")
+     * @Route ("/cart/{id}",name="user.cart.add")
      * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function addCart($id){
         $session=new Session();
@@ -29,4 +30,11 @@ class UserController extends AbstractController
         return $this->redirectToRoute('home');
     }
 
+
+    /**
+     * @Route ("/cart/show", name="user.cart.show")
+     */
+    public function showCart(){
+        return $this->render('pages/cart.html.twig');
+    }
 }
