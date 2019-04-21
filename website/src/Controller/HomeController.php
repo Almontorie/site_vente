@@ -44,7 +44,7 @@ class HomeController extends AbstractController
         $products = $productRepository->findByName($name);
 
         if(empty($products)){
-            $this->addFlash("Error","Aucun résultats");
+            $this->addFlash("Error","Aucun résultat");
         }
 
         return $this->render('pages/home.html.twig', [
