@@ -23,8 +23,8 @@
 
                 <div class="align-content-end" id="center_column">
                     <div class="d-inline-flex">
-                        <h2 style="font-weight: bold">Nom de l'item</h2>
-                        <span class="ml-3">Par Vendeur</span>
+                        <h2 style="font-weight: bold">{{ product.title }}</h2>
+                        <span class="ml-3">Par ZI VENDEUR</span>
                     </div>
 
                     <hr>
@@ -34,14 +34,14 @@
 
                     <div class="d-inline-flex">
                         <h3 class="inline" style="font-weight: bold">Prix :</h3>
-                        <span class="ml-3" style="font-size: 2em;">42€</span>
+                        <span class="ml-3" style="font-size: 2em;">{{ product.price }} €</span>
                     </div>
 
                     <br>
                     <br>
 
                     <h4>Description du produit</h4>
-                    <p class="ml-3">Acheté se produi paskil é tro bi1</p>
+                    <p class="ml-3">{{ product.description }}</p>
                 </div>
 
                 <div id="right_column">

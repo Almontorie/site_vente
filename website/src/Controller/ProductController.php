@@ -10,10 +10,12 @@ namespace App\Controller;
 
 use App\Entity\Product;
 use App\Form\ProductType;
+use App\Repository\ProductRepository;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 
 class ProductController extends AbstractController
 {
@@ -24,7 +26,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/product/add", name="add_product")
+     * @Route("/products/add", name="products.add")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -45,7 +47,7 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @Route("/product/new", name="add_product.new")
+     * @Route("/products/new", name="products.add.new")
      * @param Request $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse|\Symfony\Component\HttpFoundation\Response
      */
@@ -62,6 +64,22 @@ class ProductController extends AbstractController
 
         return $this->render('pages/add_product.html.twig', [
             'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/products/{id}/view", name="product.view")
+     * @param $id
+     * @param ProductRepository $productRepository
+     * @return Response
+     */
+    public function viewProduct($id, ProductRepository $productRepository) {
+        $product = $productRepository->find($id);
+        if(empty($product)){
+            return $this->redirectToRoute('home');
+        }
+        return $this->render('pages/product.html.twig', [
+            'product'=> $product
         ]);
     }
 
