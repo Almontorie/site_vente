@@ -13,6 +13,7 @@
                             </h5>
                             <p class="card-text">{{ product.description }}</p>
                             <h3 class="text-primary">{{ product.price }} $</h3>
+                            <a href="{{ path('user.cart.delete', {'id': product.id}) }}" class="btn btn-danger float-right">Supprimer</a>
                         </div>
                     </div>
                 </div>

@@ -62,4 +62,22 @@ class UserController extends AbstractController
         }
         return $this->redirectToRoute('home');
     }
+
+    /**
+     * @Route ("/delete/{id}", name="user.cart.delete")
+     * @param $id
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function deleteProduct($id){
+        $session = new Session();
+
+        $cart = $session->get('cart');
+
+        if (($key = array_search($id, $cart)) !== false) {
+            unset($cart[$key]);
+        }
+
+        $session->set("cart", $cart);
+        return $this->redirectToRoute('user.cart.show');
+    }
 }

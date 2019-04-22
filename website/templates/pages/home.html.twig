@@ -3,11 +3,8 @@
 {% block title %}Page d'accueil{% endblock %}
 
 {% block body %}
-    <div class="jumbotron text-center">
-        <h3>Un petit marché pas trop dispendu lo !</h3>
-    </div>
 
-    <div class="container">
+    <div class="container mt-4">
         {% for message in app.flashes('Error') %}
             <div class="alert alert-danger text-center">
                 {{ message}}
@@ -26,7 +23,7 @@
                         <input class="form-control" name="keyword" type="text">
                     </div>
                     <div class="form-group">
-                        <input class="btn btn-primary float-right mt-2" type="submit" value="Rechecher" />
+                        <input class="btn btn-primary float-right mt-2" type="submit" value="Rechercher" />
                     </div>
                 </form>
             </div>
