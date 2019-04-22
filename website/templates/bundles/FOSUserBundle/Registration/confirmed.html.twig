@@ -1,17 +1,1 @@
-{% extends 'base.html.twig' %}
-
-{% block body %}
-<<<<<<< HEAD
-    <div class=" ml-auto mr-auto alert alert-success mt-4" style="width: 400px">
-        <div>Votre compte a été créé avec succès </div>
-        <div>Bravo {{app.user.username}} votre compte est maitenant enregistré</div>
-=======
-    <div class=" ml-auto mr-auto alert alert-success" style="width: 400px">
-        <div>Votre compte a été créé avec succés </div>
-        <div>{{"Bravo" ~ {'%username%': user.username} ~",  votre compte est maintenant enregistré" }}</div>
->>>>>>> master
-    </div>
-    {% if targetUrl %}
-    <p><a href="{{ targetUrl }}">{{ 'registration.back'|trans }}</a></p>
-    {% endif %}
-{% endblock body %}
+{{ render(controller('App\\Controller\\HomeController::index')) }}
