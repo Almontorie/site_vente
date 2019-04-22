@@ -53,6 +53,7 @@
 
             <div class="ml-auto">
             {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                <a class="text-light mr-4"  href="{{ path('user.cart.show') }}"><img style="width: 40px; height: 40px" src="https://cdn4.iconfinder.com/data/icons/shopping-21/64/shopping-02-512.png" alt="panier"></a>
                 <a class="text-light mr-4" href="{{ path('fos_user_profile_show') }}">Bienvenue {{ app.user.username }}</a>
                 <a class="btn btn-danger ml-auto" href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
             {% else %}
